@@ -33,7 +33,7 @@ def pop(message):
     else:
         bot.send_message(message.chat.id, "Pop from position "+ str(len(sQLite)) + ": " + sQLite.pop(len(sQLite)-1))
 
-# Sends the last whether report from Valladolid
+# Sends the last whether report (TODO: Input location)
 @bot.message_handler(commands=['whether'])
 def whether(message):
     conn = http.client.HTTPSConnection("opendata.aemet.es")
@@ -54,7 +54,7 @@ def whether(message):
     "%\n*Accumulated Precipitation:* " + str(entrada2['prec']) + "l/m^2\n*Average Wind Speed:* " + str(entrada2['vvu']) + 
     "m/s\n*Pressure:* " + str(entrada2['pres']) + "hPa\n*Visibility:* " + str(entrada2['vis']) + "Km", parse_mode= 'Markdown')
 
-# Sends the last radar image from Palencia (closest to Valladolid)
+# Sends the last radar image (TODO: Input location)
 @bot.message_handler(commands=['radar'])
 def radar(message):
     conn = http.client.HTTPSConnection("opendata.aemet.es")
